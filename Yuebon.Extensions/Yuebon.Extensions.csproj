@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Security\Yuebon.Security.Services\Yuebon.Security.Services.csproj" />
+    <ProjectReference Include="..\Yuebon.EventBus.RabbitMQ\Yuebon.EventBus.RabbitMQ.csproj" />
+    <ProjectReference Include="..\Yuebon.EventBus\Yuebon.EventBus.csproj" />
+    <ProjectReference Include="..\Yuebon.NetCore\Yuebon.AspNetCore\Yuebon.AspNetCore.csproj" />
+    <ProjectReference Include="..\Yuebon.NetCore\Yuebon.Quartz.Jobs\Yuebon.Quartz.Jobs.csproj" />
+  </ItemGroup>
+
+</Project>

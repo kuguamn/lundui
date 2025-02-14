@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>776aece1-081b-4c5e-98fd-5ec24f5191d4</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Ocelot" Version="23.3.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CMS\Yuebon.CMS.Services\Yuebon.CMS.Services.csproj" />
+    <ProjectReference Include="..\Security\Yuebon.Security.Dtos\Yuebon.Security.Dtos.csproj" />
+    <ProjectReference Include="..\Security\Yuebon.Security.Services\Yuebon.Security.Services.csproj" />
+    <ProjectReference Include="..\Yuebon.CodeGenerator.Core\Yuebon.CodeGenerator.Core.csproj" />
+    <ProjectReference Include="..\Yuebon.Extensions\Yuebon.Extensions.csproj" />
+    <ProjectReference Include="..\Yuebon.NetCore\Yuebon.AspNetCore\Yuebon.AspNetCore.csproj" />
+    <ProjectReference Include="..\Yuebon.NetCore\Yuebon.Quartz.Jobs\Yuebon.Quartz.Jobs.csproj" />
+    <ProjectReference Include="..\Yuebon.NetCore\Yuebon.SMS.Core\Yuebon.SMS.Core.csproj" />
+  </ItemGroup>
+
+</Project>

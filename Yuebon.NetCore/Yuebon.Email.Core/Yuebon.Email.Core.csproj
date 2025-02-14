@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Yuebon.Email</RootNamespace>
+    <Version>1.0.3.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://gitee.com/yuebon/YuebonNetCore</PackageProjectUrl>
+    <PackageLicenseFile></PackageLicenseFile>
+    <PackageIcon></PackageIcon>
+    <RepositoryUrl>https://gitee.com/yuebon/YuebonNetCore</RepositoryUrl>
+    <PackageReleaseNotes>邮件发送库</PackageReleaseNotes>
+    <Copyright>广州鼎汉奇辉智能设备科技有限公司 版权所有</Copyright>
+    <PackageIconUrl />
+    <Company>广州鼎汉奇辉智能设备科技有限公司</Company>
+    <Authors>Yuebon</Authors>
+    <Description>邮件发送</Description>
+    <AssemblyVersion>1.0.3.1</AssemblyVersion>
+    <FileVersion>1.0.3.1</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.7.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yuebon.Commons\Yuebon.Commons.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="App\**" />
+    <Compile Remove="DbContextCore\**" />
+    <Compile Remove="IDbContext\**" />
+    <EmbeddedResource Remove="App\**" />
+    <EmbeddedResource Remove="DbContextCore\**" />
+    <EmbeddedResource Remove="IDbContext\**" />
+    <None Remove="App\**" />
+    <None Remove="DbContextCore\**" />
+    <None Remove="IDbContext\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Dtos\InputDtoValidateExtensions.cs" />
+    <Compile Remove="Filters\SqlSugarFilter.cs" />
+    <Compile Remove="Module\MoudleService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.0.0" />
+    <PackageReference Include="SqlSugarCore" Version="5.1.4.166" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.4.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yuebon.NetCore\Yuebon.Commons\Yuebon.Commons.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Filters\" />
+  </ItemGroup>
+
+</Project>

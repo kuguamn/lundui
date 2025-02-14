@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Security\Yuebon.Security.Models\Yuebon.Security.Models.csproj" />
+    <ProjectReference Include="..\..\Yuebon.Core\Yuebon.Core.csproj" />
+    <ProjectReference Include="..\Yuebon.WCINS.Dtos\Yuebon.WCINS.Dtos.csproj" />
+    <ProjectReference Include="..\Yuebon.WCINS.IRepositories\Yuebon.WCINS.IRepositories.csproj" />
+    <ProjectReference Include="..\Yuebon.WCINS.IServices\Yuebon.WCINS.IServices.csproj" />
+    <ProjectReference Include="..\Yuebon.WCINS.Repositories\Yuebon.WCINS.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>
