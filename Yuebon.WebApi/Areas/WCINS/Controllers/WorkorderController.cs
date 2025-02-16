@@ -244,22 +244,20 @@ namespace Yuebon.WebApi.Areas.WCINS.Controllers
             return ToJsonContent(result);
         }
 
-
         /// <summary>
         /// 获取采集结果
         /// </summary>
-        /// <param name="ponentTypeId"></param>
-        /// <param name="imgUrl"></param>
+        /// <param name="resultsDto"></param>
         /// <returns></returns>
-        [HttpGet("GetCollectionResultsAsync")]
-        public async Task<IActionResult> GetCollectionResultsAsync(long ponentTypeId, string imgUrl)
+        [HttpPost("GetCollectionResultsAsync")]
+        public async Task<IActionResult> GetCollectionResultsAsync(CollectionResultsDto resultsDto)
         {
             CommonResult result = new CommonResult();
 
             try
             {
                 // Step 1: 校验输入参数
-                if (ponentTypeId <= 0 || string.IsNullOrEmpty(imgUrl))
+                if (resultsDto.ponentTypeId <= 0 || string.IsNullOrEmpty(resultsDto.imgUrl))
                 {
                     result.ErrMsg = "参数错误：部件类型ID或采集图片不能为空";
                     result.ErrCode = "400";
@@ -267,7 +265,7 @@ namespace Yuebon.WebApi.Areas.WCINS.Controllers
                 }
 
                 // Step 2: 获取部件类型信息
-                var ponenttype = ponenttypeService.GetById(ponentTypeId);
+                var ponenttype = ponenttypeService.GetById(resultsDto.ponentTypeId);
                 if (ponenttype == null)
                 {
                     result.ErrMsg = "无效的部件类型";
@@ -276,7 +274,7 @@ namespace Yuebon.WebApi.Areas.WCINS.Controllers
                 }
 
                 // Step 3: 获取采集字段信息
-                var ponentFields = await ponentfiledService.GetListWhereAsync($"PonentTypeid = {ponentTypeId} AND EnabledMark = 1");
+                var ponentFields = await ponentfiledService.GetListWhereAsync($"PonentTypeid = {resultsDto.ponentTypeId} AND EnabledMark = 1");
                 if (ponentFields == null || !ponentFields.Any())
                 {
                     result.ErrMsg = "未找到对应的采集字段";
@@ -285,7 +283,7 @@ namespace Yuebon.WebApi.Areas.WCINS.Controllers
                 }
 
                 // Step 4: 请求采集接口获取识别结果
-                var collectResults = await CallCollectPartyApiAsync(ponenttype.Typecode, imgUrl);
+                var collectResults = await CallCollectPartyApiAsync(ponenttype.Typecode, resultsDto.imgUrl);
                 if (collectResults == null || !collectResults.Any())
                 {
                     result.ErrMsg = "采集接口未返回任何结果";
